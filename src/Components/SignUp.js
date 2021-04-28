@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Axios from "axios";
+import { API_URL } from "./Api";
 
 const SignUp = () => {
   const history = useHistory();
   //const url = "https://5921caf5cfac.ngrok.io/auth/signup";
-  const url = "http://1553d946f492.ngrok.io/signin";
+  const url = API_URL + `/auth/signup`;
   const [data, setData] = useState({
     fname: "",
     lname: "",
@@ -86,8 +87,6 @@ const SignUp = () => {
             <option value="80-90">80-90</option>
             <option value="90-100">90-100</option>
           </select> */}
-          <br />
-          <label>Gender: </label>
           {/* <input
         type="radio"
         value="Male"
@@ -110,6 +109,8 @@ const SignUp = () => {
               />
 
 <label htmlFor="female">Female</label> */}
+          <br />
+          <label>Gender: </label>
           <input
             type="radio"
             value="male"
@@ -158,7 +159,7 @@ const SignUp = () => {
             type="password"
             placeholder="Enter Confirm Password"
             onChange={(e) => setData({ ...data, cpassword: e.target.value })}
-            id="confirmpassword"
+            id="confirm_password"
             value={data.cpassword}
           />
           <br />
